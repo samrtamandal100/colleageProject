@@ -110,7 +110,10 @@ router.get("/show", (req ,res)=>
     res.render("createpost")
 })
 
+
 module.exports =router
+
+
 
 
 
