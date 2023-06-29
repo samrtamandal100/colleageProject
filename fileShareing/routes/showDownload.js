@@ -10,7 +10,8 @@ router.get("/:uudi", async(req,res)=>
 
     const finddata = await database.findOne({uuid:uuidData});
     if(!finddata)
-    {
+    { 
+      
        
         return res.render("download",{error:"link has been expired"});
     }

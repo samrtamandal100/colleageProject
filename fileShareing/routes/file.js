@@ -35,7 +35,7 @@ router.post("/", upload.single("myfile"),async(req ,res)=>
    
   const uploadResult = await cloudinary.uploader.upload(req.file.path);
 
-      const {originalname,size }= req.file;
+      const {originalname,size}= req.file;
 
     const files = new FileDataBase({
         fileName:originalname,
@@ -101,13 +101,13 @@ router.post("/send", async(req,res)=>
 
     }catch(err)
     {
-        return res.status(500).send({error:"something worng happen"});
+        return res.status(500).send({error:"something worng happen"+ err});
     }
 })
 
 router.get("/show", (req ,res)=>
 {
-    res.render("createpost")
+    res.render("createposts")
 })
 
 
