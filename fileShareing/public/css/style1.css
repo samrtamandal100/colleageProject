@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  [class*="col-"] {
+    float: left;
+    padding: 5px;
+  }
+
+  /* Full-width input fields */
+  .col-12 input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid skyblue; /* Green */
+  }
+
+
+
+
+
+
+
+ 
+  
+  
+  .expire {
+    font-size: 16px;
+    opacity: 0.7;
+    margin-top: 0;
+  }
+  
+.input-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .input-container input {
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px 15px;
+    font-size: 20px;
+    border: 2px dashed var(--border-color);
+    border-radius: 6px;
+    background: #f5fcff;
+    color: #607d8b;
+  }
+  
+  
+  
+  
+  .send-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .send-btn-container button {
+    font-size: 18px;
+    padding: 8px 40px;
+    margin-top: 15px;
+    background: var(--main-bg-color);
+    border: none;
+    border-radius: 5px;
+    color: #607d8b;
+    cursor: pointer;
+  }
+  .send-btn-container button:hover{
+    color: #4CAF50;
+  }
+
+  /* .copy-button {
+    background-color:#abccb4;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+   .copy-button:hover {
+        background-color:#8bc99c; 
+      }
+ */
+

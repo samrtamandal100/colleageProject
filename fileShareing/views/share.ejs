@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download | File Sharing Made Easy</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style1.css">
+</head>
+
+<body>
+    <img src="/img/logo.png" alt="Inshare logo" class="logo">
+
+    <section class="download">
+       
+     
+    
+      <form action="/app/file/send" method="post">
+            <p class="expire">Link expires in 24 hrs</p>
+        <div class="input-container">
+            <input type="text" id="fileURL" placeholder='<%=Linke%>' value='<%=Linke%>'  readonly >
+            <input type="hidden" id="fileURL" value='<%=Uuid%>' name="uuid"  readonly >
+            <img src="/img/copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
+        </div>
+        
+        <div class="download__meta">
+          <h4>Filename : <%= fileName %></h4>
+          <small>Size :<%= parseInt(fileSize/1000) %> KB</small>
+        <p class="email-info">Or Send via Email</p>
+
+      
+        <div class="row">
+            <div class="col-12">
+              <input type="text" placeholder="Enter text here" id="text1" name="SenderEmail">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <input type="text" placeholder="Enter text here" id="text2" name="ReceverEmail">
+            </div>
+          </div>
+          <div class="send-btn-container">
+            <button id="send" type="submit">Send</button>
+        </div>
+        </form>
+    </section>
+
+    <!-- github fork button -->
+    
+</body>
+
+</html>
