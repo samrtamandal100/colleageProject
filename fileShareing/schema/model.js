@@ -27,6 +27,10 @@ const fileSchema = mongoose.Schema({
         type:String,
         require:false
     }
+    ,
+    downloadId :{
+        type:String
+    }
 })
 
 module.exports = mongoose.model("File",fileSchema);

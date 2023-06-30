@@ -10,6 +10,9 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const cloudinary = require("../cloud/cloudnary");
 const sendmail = require("../services/mailService")
+const https = require("https");
+
+
 
 router.use(express.urlencoded({ extended: true }));
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -36,15 +39,39 @@ router.post("/", upload.single("myfile"),async(req ,res)=>
   const uploadResult = await cloudinary.uploader.upload(req.file.path);
 
       const {originalname,size}= req.file;
+      const uu = uuidv4();
 
     const files = new FileDataBase({
         fileName:originalname,
         uuid:uuidv4(),
         imgLink:uploadResult.secure_url,
-        size:size
+        size:size,
+        downloadId:uu
+        
     })
 
     const response = await files.save();
+
+    const imageUrl  = response.imgLink;
+
+   
+     const file = fs.createWriteStream(`./photo/${uu}.png`);
+    
+    // Make an HTTP request to fetch the image
+    https.get(imageUrl, (response) => {
+      // Pipe the response stream into the file stream to save the image
+      response.pipe(file);
+    
+      // Handle successful completion of the request
+      response.on('end', () => {
+        console.log('Image downloaded successfully.');
+      });
+    }).on('error', (error) => {
+      console.error('Error downloading the image:', error);
+    });
+
+
+
     res.render("share",{
         fileName: response.fileName,
         Linke:`${process.env.host_name}/file/${response.uuid}`,

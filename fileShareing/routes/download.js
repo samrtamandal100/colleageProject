@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const database = require("../schema/model");
+const path = require('path');
+
+
 
 router.get("/:uudi",async(req,res)=>
 {
@@ -14,6 +17,11 @@ router.get("/:uudi",async(req,res)=>
             error:"this has been expired"
         })
      }
+
+   const filepaths= `${__dirname}/../photo/${userdata.downloadId}.png`;
+   
+   
+  res.download(filepaths);
     
      
 
