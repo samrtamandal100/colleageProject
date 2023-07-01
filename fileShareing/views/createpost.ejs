@@ -1,77 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom File Upload Button</title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- Google Fonts  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/fontstyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="/app/file/" method="POST" enctype="multipart/form-data">
+      <input type="file" id="file-input"  name="myfile" multiple />
+      <label for="file-input">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        &nbsp; Choose Files To Upload
+      </label>
+      <div id="num-of-files">No Files Choosen</div>
+      <ul id="files-list"></ul>
+      <button id="btn" type="submit">
+        <p id="btnText">Submit</p>
+        <div class="check-box">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+        </div>
+    </button>
+  </form>
+    </div>
 
-    <!DOCTYPE html>
-    <!-- Created By CodingNepal -->
-    <html lang="en" dir="ltr">
-       <head>
-          <meta charset="utf-8">
-          <title>Preview Image Before Upload | CodingNepal</title>
-          <link rel="stylesheet" href="/css/fontstyle.css">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-       </head>
-       <body>
-         
-          <div class="container">
-            
-             <div class="wrapper">
-                <div class="image">
-                   <img src="" alt="">
-                </div>
-                <div class="content">
-                   <div class="icon">
-                      <i class="fas fa-cloud-upload-alt"></i>
-                   </div>
-                   <div class="text">
-                      No file chosen, yet!
-                   </div>
-                </div>
-                <div id="cancel-btn">
-                   <i class="fas fa-times"></i>
-                </div>
-                <div class="file-name">
-                   File name here
-                </div>
-             </div>
-             
-             <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-
-             
-             <input id="default-btn" type="myfile" hidden>
-             <button  id="custom-btn" type="submit" >submit</button>
-
-            
-          </div>
-         
-          <script>
-             const wrapper = document.querySelector(".wrapper");
-             const fileName = document.querySelector(".file-name");
-             const defaultBtn = document.querySelector("#default-btn");
-             const customBtn = document.querySelector("#custom-btn");
-             const cancelBtn = document.querySelector("#cancel-btn i");
-             const img = document.querySelector("img");
-             let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-             function defaultBtnActive(){
-               defaultBtn.click();
-             }
-             defaultBtn.addEventListener("change", function(){
-               const file = this.files[0];
-               if(file){
-                 const reader = new FileReader();
-                 reader.onload = function(){
-                   const result = reader.result;
-                   img.src = result;
-                   wrapper.classList.add("active");
-                 }
-                 cancelBtn.addEventListener("click", function(){
-                   img.src = "";
-                   wrapper.classList.remove("active");
-                 })
-                 reader.readAsDataURL(file);
-               }
-               if(this.value){
-                 let valueStore = this.value.match(regExp);
-                 fileName.textContent = valueStore;
-               }
-             });
-          </script>
-       </body>
-    </html>
+    <!-- Script -->
+    <script src="/css/script.js"></script>
+  </body>
+</html>

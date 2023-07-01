@@ -1,116 +1,119 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
+* {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-html,body{
-  display: flex;
-  height: 100%;
-  place-items: center;
-  text-align: center;
-  justify-content: center;
-  background-color: black;
+body {
+  background-color: #e9edf5
 }
-.container{
-  height: 350px;
-  width: 500px;
+.container {
+  background-color: #F0EBEB;
+  width: 90%;
+  max-width: 34.37em;
   position: relative;
-  margin: 0 0;
-}
-@media only screen and (max-width:768px){
-  .container{
-    width: 100%;
-  }
-  
-}
-
-
-
-.container .wrapper{
-  position: relative;
-  height: 300px;
-  width: 100%;
+  margin: 5em auto;
+  padding: 4em 1em;
   border-radius: 10px;
-  background: #fff;
-  border: 2px dashed #c2cdda;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  box-shadow: 0 1.25em 2.18em rgb(1, 28, 71, 0.3);
+  display: grid;
+  place-items: center;
 }
-.wrapper.active{
-  border: none;
+input[type="file"] {
+  display: none;
 }
-.wrapper .image{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.wrapper img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.wrapper .icon{
-  font-size: 100px;
-  color: #3a8ffe;
-}
-.wrapper .text{
-  font-size: 20px;
+label {
+  display: block;
+  position: relative;
+  background-color: #0080fe;
+  color: #ffffff;
+  font-size: 1.12em;
   font-weight: 500;
-  color: #5B5B7B;
-}
-.wrapper #cancel-btn i{
-  position: absolute;
-  font-size: 20px;
-  right: 15px;
-  top: 15px;
-  color: #9658fe;
+  text-align: center;
+  width: 18.75em;
+  padding: 1.12em 0;
+  margin: auto;
+  border-radius: 0.31em;
   cursor: pointer;
-  display: none;
 }
-.wrapper.active:hover #cancel-btn i{
-  display: block;
+#num-of-files {
+  font-weight: 400;
+  text-align: center;
+  margin: 2em 0 2em 0;
 }
-.wrapper #cancel-btn i:hover{
-  color: #e74c3c;
+ul {
+  list-style-type: none;
 }
-.wrapper .file-name{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  padding: 8px 0;
-  font-size: 18px;
-  color: #fff;
-  display: none;
-  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+.container li {
+  font-weight: 500;
+  background-color: #eff5ff;
+  color: #0080fe;
+  margin-bottom: 1em;
+  padding: 1.1em 1em;
+  border-radius: 0.3em;
+  display: flex;
+  justify-content: space-between;
 }
-.wrapper.active:hover .file-name{
-  display: block;
-}
-.container #custom-btn{
-  margin-top: 30px;
-  display: block;
-  width: 100%;
-  height: 50px;
+
+button{
+  width: 270px;
+  height: 80px;
   border: none;
   outline: none;
-  border-radius: 25px;
+  background: #2f2f2f;
   color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 22px;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
-  background: linear-gradient(135deg,#3c3cf0 0%,#3a8ffe 100%);
+
 }
 
-.container #custom-btn:hover{
-  color:#1d1d1d;
-  
+.check-box{
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  box-shadow: 0 0 12px -2px rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  right: -40px;
+  opacity: 0;
+}
+
+.check-box svg{
+  width: 40px;
+  margin: 20px;
+}
+
+svg path{
+  stroke-width: 3;
+  stroke: #fff;
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  stroke-linecap: round;
+}
+
+.active{
+  background: #0080fe;
+  transition: 1s;
+}
+
+.active .check-box{
+  right: 0;
+  opacity: 1;
+  transition: 1s;
+}
+
+.active p{
+  margin-right: 125px;
+  transition: 1s;
+}
+
+.active svg path{
+  stroke-dashoffset: 0;
+  transition: 1s;
+  transition-delay: 1s;
 }

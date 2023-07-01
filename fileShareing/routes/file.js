@@ -134,7 +134,7 @@ router.post("/send", async(req,res)=>
 
 router.get("/show", (req ,res)=>
 {
-    res.render("createposts")
+    res.render("createpost")
 })
 
 
