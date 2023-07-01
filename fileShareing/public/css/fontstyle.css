@@ -95,6 +95,12 @@ svg path{
   stroke-dashoffset: 34;
   stroke-linecap: round;
 }
+.logo {
+  position: absolute;
+  top:-30px;
+  left: 10px;
+  width: 150px;
+}
 
 .active{
   background: #0080fe;
